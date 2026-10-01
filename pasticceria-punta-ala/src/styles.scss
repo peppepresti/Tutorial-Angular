@@ -672,7 +672,8 @@ app-root {
 }
 /* Nastri da confezione e navbar coordinata alle cornici. */
 body {
-  background: #eee8da url('/images/decor/pastry-ribbons.png') center top / cover no-repeat fixed;
+  background: #eee8da url('../public/images/decor/pastry-ribbons.png') center top / cover no-repeat
+    fixed;
 }
 app-root {
   background: transparent;

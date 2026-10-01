@@ -52,3 +52,11 @@ Recensioni Google Maps verificate il 1 ottobre 2026: 4,6/5 su 97 recensioni. Tre
 ## Navigazione e recensioni aggiornate
 Navbar persistente durante lo scroll, con Perché sceglierci e Recensioni; menu compatto sotto 1100px.
 Nella pagina si mostrano solo i nomi Alessandra, Marco e Sam. Tatiana sostituita con Sam Mir; testo verificato nella raccolta Sluurpy delle recensioni Google, fonte salvata nel manifest.
+
+## Pubblicazione su GitHub Pages
+
+Il workflow `.github/workflows/pages.yml` compila e pubblica la landing a ogni push su `main`. Nelle impostazioni Pages del repository, la sorgente deve essere **GitHub Actions**.
+
+Indirizzo previsto: https://peppepresti.github.io/Tutorial-Angular/
+
+Build di pubblicazione: `npm run build -- --base-href /Tutorial-Angular/`. Lo sfondo viene incluso nella build, così funziona anche nel sottopercorso GitHub Pages.

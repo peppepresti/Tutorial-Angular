@@ -1,0 +1,53 @@
+name: Pubblica la pasticceria su GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: pasticceria-punta-ala
+    steps:
+      - name: Scarica il progetto
+        uses: actions/checkout@v6
+      - name: Configura Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: "26"
+          cache: npm
+          cache-dependency-path: pasticceria-punta-ala/package-lock.json
+      - name: Configura GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Installa le dipendenze
+        run: npm ci
+      - name: Compila il sito
+        run: npm run build -- --base-href /Tutorial-Angular/
+      - name: Carica il sito
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: pasticceria-punta-ala/dist/pasticceria-punta-ala/browser
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Pubblica il sito
+        id: deployment
+        uses: actions/deploy-pages@v4
