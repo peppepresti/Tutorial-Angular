@@ -1,0 +1,33 @@
+{
+  "source": "https://www.google.com/maps?cid=1327845552880401936",
+  "checkedAt": "2026-10-01",
+  "rating": 4.6,
+  "count": 97,
+  "reviews": [
+    {
+      "author": "Alessandra",
+      "rating": 5,
+      "quote": "Prodotti genuini e ottimi",
+      "summary": "Apprezza la qualità dei prodotti, le persone che lavorano in pasticceria e il servizio.",
+      "url": "https://www.google.com/maps?cid=1327845552880401936",
+      "sourceId": "Ci9DQUlRQUNvZENodHljRjlvT21WNWRsSkZZV0puTWxKVWExb3dOWE5FZUhKbGQwRRAB"
+    },
+    {
+      "author": "Marco",
+      "rating": 5,
+      "quote": "Prodotti ottimi!",
+      "summary": "Apprezza i prodotti e suggerisce il servizio al tavolo per completare l’esperienza.",
+      "url": "https://www.google.com/maps?cid=1327845552880401936",
+      "sourceId": "Ci9DQUlRQUNvZENodHljRjlvT2s5eE1FVkRlVzlwUTJWcmVqQnRaRUUyUzBzelJWRRAB"
+    },
+    {
+      "author": "Sam",
+      "rating": 5,
+      "quote": "Buonissimo da sempre e ben organizzati.",
+      "summary": "Apprezza la qualità mantenuta nel tempo, la buona organizzazione e la gestione familiare.",
+      "url": "https://www.google.com/maps?cid=1327845552880401936",
+      "sourceId": "sam-mir-google-review",
+      "verificationSource": "https://www.sluurpy.it/castiglione-della-pescaia/ristorante/179638/punta-ala-bar-pasticceria-siciliana/recensioni"
+    }
+  ]
+}

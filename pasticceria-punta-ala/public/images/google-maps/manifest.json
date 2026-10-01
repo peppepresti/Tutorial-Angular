@@ -1,0 +1,68 @@
+{
+  "place": "Pasticceria Siciliana",
+  "coordinates": {
+    "latitude": 42.8053453,
+    "longitude": 10.7694705
+  },
+  "plusCode": "RQ49+4Q Punta Ala, Provincia di Grosseto",
+  "source": "https://www.google.com/maps?cid=1327845552880401936",
+  "displayedPhotoCount": 88,
+  "photos": [
+    {
+      "source": "https://lh3.googleusercontent.com/grass-cs/ACvplmNjASgiqynSNL6RuvcXRSmHpItvews78ksZ9PRQqaBCP0Bt5HPTprlwx57N3E3-HUAQgsG3razsVyUHWWmWLkqklOtEH2jAwELqRhTtoF8MKuYH61txg9QNSkj63PUPNUJqhHQV=w1600-h1200-k-no",
+      "label": "Google Maps",
+      "file": "maps-001.jpg"
+    },
+    {
+      "source": "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9RiLBSP6AG7vglRsMxFwQk7QuoVkBC1XC66QYleQTuWbHaye5VPILMewYn6VarajtvrbE9mdRtU5_1lG5JnItOWY0ksvqPh7KSVb_CEmIjLwtuJJYTv872MdLBBMkR0NE196I7L=w1600-h1200-k-no",
+      "label": "Foto 1 ",
+      "file": "maps-002.jpg"
+    },
+    {
+      "source": "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Qk_lGjUQIDH0FXtnigJ11z5xzwcyfgb3n9X6CEXgkonTSbcirTKxU2BjnG-_fsW7nuH4VIMPrqvRuvfJnZrf2aa84OayeFVaGzQ9Aj9Qn6lYNO9kAO-Xum2u7tnaTEyb9fwsmF=w1600-h1200-k-no",
+      "label": "Foto 2 ",
+      "file": "maps-003.jpg"
+    },
+    {
+      "source": "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9SspFq2wnliNuogctkHa8oxKQUNuEOlmTXLepZrcsyTwXE1x8s63sVxRlbFN7VrifoYWKja_yP9nAUvdrHf1Rgf2ugbxQQUV--3ANPNHNzs32YAlea16pe2mOqKt11J2X9K00lOzeLBUJY=w1600-h1200-k-no",
+      "label": "Foto 3 ",
+      "file": "maps-004.jpg"
+    },
+    {
+      "source": "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9RE1BZbx8WlAywwIvqd-3EnYDuAL_x8bokTP38lvcnkr7XSKNWm9AZTYX3hFU-rl7-XqdehTkJk-Xw3TNRO2oyg6R5oli8MHzlWQ03KIIMWDOL-f6XOQ70hnAWjXCzoIcdDzES9lw=w1600-h1200-k-no",
+      "label": "Foto 4 ",
+      "file": "maps-005.jpg"
+    },
+    {
+      "source": "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9RDyCq8qq1hQlFNszc-IA2ad6PtCCgrd6ZzXD_DkP_R1SE4iRhQNytuNGzzVoBLZMo7_p4SJS4VpAAIIb4O9aZBBBPgvps-eq3QA2K83Fe3faOoWWPewtfkBeCO7WdPb-HVDVfkbQ=w1600-h1200-k-no",
+      "label": "Foto 5 ",
+      "file": "maps-006.jpg"
+    },
+    {
+      "source": "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9QcRipCTOiuNwO8rPAuc5r9T1wSmokoqNuEY0JtG_Qm1yL22T-agic2CB63zooMiyjq7cQx0iIDTvEcSQNLC-0HqxjAIRwJq7UzFeBTZXSblabREy4sMusYQPKvKt-dzbQhxuWViQ=w1600-h1200-k-no",
+      "label": "Foto 6 ",
+      "file": "maps-007.jpg"
+    },
+    {
+      "source": "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9TmDSn3kHCKs8hvcIt-1RqFtrpCuMS8ac30JhjZpjh7Ekp1Iyf5U1Myo82zmfXwSkJpoleWCfM1dnEh70AMfnr3oqVmhOB7eehZngEzpRjJxXvtT12C_vFcw71XhsiszqVAklk=w1600-h1200-k-no",
+      "label": "Foto 7 ",
+      "file": "maps-008.jpg"
+    },
+    {
+      "source": "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9QYA5z_Ec-0sEkrK85-JsrQQnTrYLAojI0u-2tABfkzsbmpLOefRoQI_sTC9Eu6UUdwGl1Grr5SbyvYoq7Ah-68T7BCkIjuhpXto7sA7HbYNWRCuxT9aBPoEIHFCpMTbxKltd0=w1600-h1200-k-no",
+      "label": "Foto 8 ",
+      "file": "maps-009.jpg"
+    },
+    {
+      "source": "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9QMbW6VhPIcqtuC-wbgmCH0FOAHwtQPDmxpmyuZ-gIIvc4NHTDzOM2y3TBb-hOGW19awNa76UCzmP4M_8skXYJr1SvW6VYekHudzKz0W1Shc_qRMwPtVbvsic1bAfN9TUT0OhsNcQ=w1600-h1200-k-no",
+      "label": "Foto 9 ",
+      "file": "maps-010.jpg"
+    },
+    {
+      "source": "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9SyXFiV1oXvSfAJIM3ggXmjDsf8MC_6pqjqGmgPZJMnmje_GLGao_7tr1zBYu3CqylWhRblVYYpz8a1mUSOB5SiitEAlUZKy4YEiWeLzATYalpPsfgbcu9SEr4oaZE9e8CQPeFO=w1600-h1200-k-no",
+      "label": "Foto 10 ",
+      "file": "maps-011.jpg"
+    }
+  ],
+  "accessNote": "Google Maps indica 88 foto; la sessione pubblica ne rende disponibili 10 uniche. maps-001 e maps-002 sono duplicati."
+}

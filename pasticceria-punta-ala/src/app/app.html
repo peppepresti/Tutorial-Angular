@@ -1,0 +1,408 @@
+<a class="skip-link" href="#contenuto">Vai al contenuto</a>
+<header class="header">
+  <a class="brand" href="#" aria-label="Pasticceria Siciliana, inizio pagina"
+    ><span class="brand-mark" aria-hidden="true">✳</span
+    ><span>PASTICCERIA SICILIANA<small>DI FAMIGLIA · A PUNTA ALA</small></span></a
+  >
+  <button
+    class="menu-toggle"
+    type="button"
+    [attr.aria-expanded]="menuOpen()"
+    aria-controls="navigation"
+    (click)="menuOpen.set(!menuOpen())"
+  >
+    {{ menuOpen() ? 'Chiudi' : 'Menu' }}
+  </button>
+  <nav id="navigation" aria-label="Navigazione principale" [class.open]="menuOpen()">
+    <a href="#specialita" (click)="closeMenu()">Specialità</a
+    ><a href="#famiglia" (click)="closeMenu()">Chi siamo</a
+    ><a href="#gallery" (click)="closeMenu()">Gallery</a
+    ><a href="#ordinazioni" (click)="closeMenu()">Dolci</a
+    ><a href="#perche-sceglierci" (click)="closeMenu()">Perché sceglierci</a
+    ><a href="#recensioni" (click)="closeMenu()">Recensioni</a
+    ><a href="#contatti" (click)="closeMenu()">Dove siamo</a>
+    <a class="nav-call" [class.whatsapp-link]="content.whatsappEnabled" [href]="contactUrl">
+      @if (content.whatsappEnabled) {
+        <img
+          class="whatsapp-icon"
+          src="images/brand/whatsapp-white.svg"
+          width="20"
+          height="20"
+          alt=""
+          aria-hidden="true"
+        />
+      }
+      {{ content.whatsappEnabled ? 'WhatsApp ↗' : 'Chiamaci ↗' }}</a
+    >
+  </nav>
+</header>
+<main id="contenuto">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <p class="eyebrow"><span></span> DALLA SICILIA A PUNTA ALA</p>
+      <h1 id="hero-title">Dolcezza,<br />tradizione<br />e <em>famiglia.</em></h1>
+      <p class="intro">
+        Un angolo di Sicilia sulla costa toscana.<br />La tua prossima pausa dolce comincia qui.
+      </p>
+      <div class="actions">
+        <a class="button primary" href="#specialita">Scopri i nostri prodotti ↗</a>
+      </div>
+      <p class="hero-note">PUNTA ALA, GROSSETO · GIO–DOM / 07:30–12:30</p>
+    </div>
+    <figure class="hero-photo">
+      <img
+        src="images/google-maps/maps-010.jpg"
+        alt="Cassatine e dolci alla ricotta nel banco della Pasticceria Siciliana"
+        width="1600"
+        height="900"
+        fetchpriority="high"
+      />
+      <figcaption>Il nostro banco · Pasticceria Siciliana</figcaption>
+      <span class="photo-stamp" aria-hidden="true">Una pausa<br /><em>di felicità.</em></span>
+    </figure>
+  </section>
+  <section class="specialties section" id="specialita" aria-labelledby="specialties-title">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">LE SPECIALITÀ</p>
+        <h2 id="specialties-title">A ogni momento,<br /><em>la sua dolcezza.</em></h2>
+      </div>
+      <p>
+        Un assaggio della nostra pasticceria.<br />Chiamaci per conoscere i prodotti disponibili.
+      </p>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <img
+          src="images/google-maps/maps-004.jpg"
+          alt="Colazione con caffè, paste e cannoli"
+          width="900"
+          height="1200"
+          loading="lazy"
+          decoding="async"
+        />
+        <div class="card-copy">
+          <span>01 / IL BUONGIORNO</span>
+          <h3>Colazione</h3>
+          <p>Una pausa dolce per iniziare la giornata.</p>
+        </div>
+      </article>
+      <article class="card">
+        <img
+          src="images/google-maps/maps-010.jpg"
+          alt="Cassatine e dolci alla ricotta in vetrina"
+          width="1600"
+          height="900"
+          loading="lazy"
+          decoding="async"
+        />
+        <div class="card-copy">
+          <span>02 / UN PICCOLO PIACERE</span>
+          <h3>Pasticceria</h3>
+          <p>Dolci momenti da gustare e condividere.</p>
+        </div>
+      </article>
+      <article class="card">
+        <img
+          src="images/google-maps/maps-009.jpg"
+          alt="Torta decorata con fragole"
+          width="900"
+          height="1200"
+          loading="lazy"
+          decoding="async"
+        />
+        <div class="card-copy">
+          <span>03 / I TUOI GIORNI SPECIALI</span>
+          <h3>Torte su ordinazione</h3>
+          <a class="text-link" href="#ordinazioni">Raccontaci la tua occasione →</a>
+        </div>
+      </article>
+    </div>
+    <p class="availability">
+      Le disponibilità cambiano con la stagione. Scrivici per conoscere i prodotti di oggi.
+    </p>
+  </section>
+  <section class="story section" id="famiglia" aria-labelledby="story-title">
+    <div>
+      <p class="eyebrow">CHI SIAMO</p>
+      <h2 id="story-title">Radici siciliane.<br />Un cuore a <em>Punta Ala.</em></h2>
+    </div>
+    <div class="story-copy">
+      <p>Le cose buone sono ancora più belle quando si condividono.</p>
+      <p>
+        Siamo una pasticceria siciliana a gestione familiare. Un incontro tra la tradizione della
+        nostra terra e la bellezza della costa toscana.
+      </p>
+      <a class="text-link" href="#contatti">Passa a salutarci →</a>
+    </div>
+    <div class="story-photos">
+      <figure class="story-interior">
+        <img
+          src="images/google-maps/maps-001.jpg"
+          alt="Il banco e gli interni della Pasticceria Siciliana"
+          width="1600"
+          height="1200"
+          loading="lazy"
+          decoding="async"
+        />
+        <figcaption>Il nostro angolo di Sicilia.</figcaption>
+      </figure>
+      <figure class="story-sign">
+        <div class="story-sign-crop">
+          <img
+            src="images/google-maps/maps-005.jpg"
+            alt="La nostra insegna: Pasticceria Siciliana bar, verde scuro con cornice dorata"
+            width="1600"
+            height="900"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <figcaption>la nostra storica insegna</figcaption>
+      </figure>
+    </div>
+  </section>
+  <section class="gallery section" id="gallery" aria-labelledby="gallery-title">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">GALLERY</p>
+        <h2 id="gallery-title">Prima gli occhi.<br /><em>Poi il primo assaggio.</em></h2>
+      </div>
+      <a class="text-link" [class.whatsapp-link]="content.whatsappEnabled" [href]="contactUrl">
+        @if (content.whatsappEnabled) {
+          <img
+            class="whatsapp-icon"
+            src="images/brand/whatsapp-green.svg"
+            width="20"
+            height="20"
+            alt=""
+            aria-hidden="true"
+          />
+        }
+        Chiedici cosa trovi al banco ↗</a
+      >
+    </div>
+    <div class="gallery-grid">
+      @for (photo of content.gallery; track photo.image) {
+        <figure class="gallery-item" tabindex="0">
+          <img
+            [src]="'images/' + photo.image + '.jpg'"
+            [alt]="photo.alt"
+            width="1200"
+            height="1200"
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption>
+            <strong>{{ photo.title }}</strong
+            ><span>{{ photo.description }}</span>
+          </figcaption>
+        </figure>
+      }
+    </div>
+    <p class="availability">
+      Foto della pasticceria dalla
+      <a [href]="content.location.mapsSource" target="_blank" rel="noopener noreferrer"
+        >galleria Google Maps ↗</a
+      >. Le specialità delle feste sono stagionali.
+    </p>
+  </section>
+  @if (content.customCakesEnabled) {
+    <section class="orders section" id="ordinazioni" aria-labelledby="orders-title">
+      <img
+        src="images/google-maps/maps-003.jpg"
+        alt="Torta personalizzata per un compleanno"
+        width="900"
+        height="1200"
+        loading="lazy"
+      />
+      <div>
+        <p class="eyebrow">TORTE E ORDINAZIONI</p>
+        <h2 id="orders-title">Rendi speciale<br /><em>la tua occasione.</em></h2>
+        <p>
+          Raccontaci cosa vuoi festeggiare, la data e il numero di persone. Insieme valuteremo
+          proposte, disponibilità e tempi di preparazione.
+        </p>
+        <a class="button primary" [class.whatsapp-link]="content.whatsappEnabled" [href]="cakeUrl">
+          @if (content.whatsappEnabled) {
+            <img
+              class="whatsapp-icon"
+              src="images/brand/whatsapp-white.svg"
+              width="20"
+              height="20"
+              alt=""
+              aria-hidden="true"
+            />
+          }
+          Richiedi un’ordinazione ↗</a
+        >
+      </div>
+    </section>
+  }
+  <section class="values section" id="perche-sceglierci" aria-labelledby="values-title">
+    <div class="values-heading">
+      <div>
+        <p class="eyebrow">PERCHÉ SCEGLIERCI</p>
+        <h2 id="values-title">Cinquant’anni di gestione.<br /><em>La stessa passione.</em></h2>
+        <p class="anniversary-copy">
+          Nel 2026 festeggiamo il <strong>50° anno di gestione</strong>. Un traguardo che racconta
+          il legame con Punta Ala e la passione della nostra famiglia per la pasticceria siciliana.
+        </p>
+      </div>
+      <div class="anniversary-badge" aria-label="Cinquantesimo anniversario di gestione, 2026">
+        <span>UN TRAGUARDO DA FESTEGGIARE</span><strong>50<sup>°</sup></strong
+        ><span>ANNIVERSARIO DI GESTIONE</span><small>2026</small>
+      </div>
+    </div>
+    <div class="values-grid">
+      <article>
+        <span aria-hidden="true">✳</span>
+        <h3>Identità siciliana</h3>
+        <p>La tradizione della nostra terra, nei dolci che condividiamo con voi.</p>
+      </article>
+      <article>
+        <span aria-hidden="true">♡</span>
+        <h3>Gestione familiare</h3>
+        <p>Persone, passione e un rapporto con i clienti che cresce nel tempo.</p>
+      </article>
+      <article>
+        <span aria-hidden="true">⌖</span>
+        <h3>Un legame con Punta Ala</h3>
+        <p>Cinquant’anni di gestione e tanti momenti dolci da ricordare insieme.</p>
+      </article>
+    </div>
+  </section>
+  @if (content.reviews.length) {
+    <section class="reviews section" id="recensioni" aria-labelledby="reviews-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">RECENSIONI DEI CLIENTI · GOOGLE MAPS</p>
+          <h2 id="reviews-title">Le vostre parole,<br /><em>il nostro sorriso.</em></h2>
+        </div>
+        <a
+          class="google-rating"
+          [href]="content.location.mapsSource"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Valutazione Google Maps: 4,6 su 5, 97 recensioni"
+          ><strong>4,6<span>/ 5</span></strong
+          ><span class="rating-stars" aria-hidden="true">★★★★★</span
+          ><small>{{ content.reviewSummary.count }} recensioni su Google Maps ↗</small></a
+        >
+      </div>
+      <div class="reviews-grid">
+        @for (review of content.reviews; track review.sourceId) {
+          <figure>
+            <div class="review-meta">
+              <span class="review-avatar" aria-hidden="true">{{ review.author.charAt(0) }}</span>
+              <div>
+                <strong>{{ review.author }}</strong
+                ><small>Recensione su Google Maps</small>
+              </div>
+            </div>
+            <span class="review-stars" aria-label="{{ review.rating }} stelle su 5"
+              >{{ review.rating }} / 5 ★</span
+            >
+            <blockquote>“{{ review.quote }}”</blockquote>
+            <p class="review-summary"><span>Sintesi della recensione</span>{{ review.summary }}</p>
+            <figcaption>
+              <a [href]="review.url" target="_blank" rel="noopener noreferrer"
+                >Vedi le recensioni su Google Maps ↗</a
+              >
+            </figcaption>
+          </figure>
+        }
+      </div>
+      <p class="availability">
+        Estratti brevi e sintesi di recensioni pubbliche. Valutazione e numero di recensioni
+        verificati il {{ content.reviewSummary.checkedAt }}.
+      </p>
+    </section>
+  }
+  <section class="contact section" id="contatti" aria-labelledby="contact-title">
+    <div class="contact-copy">
+      <p class="eyebrow">DOVE SIAMO</p>
+      <h2 id="contact-title">Ti aspettiamo<br /><em>a Punta Ala.</em></h2>
+      <address>Condominio Il Delfino, Via Lattea<br />58043 Punta Ala (GR)</address>
+      <p class="plus-code">{{ content.location.plusCode }}</p>
+      <a class="phone" href="tel:+393291544558">329 154 4558 ↗</a>
+      <div class="actions">
+        <a class="button primary" [href]="mapUrl" target="_blank" rel="noopener noreferrer"
+          >Indicazioni stradali ↗</a
+        >
+        @if (content.whatsappEnabled) {
+          <a class="text-link" [class.whatsapp-link]="content.whatsappEnabled" [href]="contactUrl">
+            @if (content.whatsappEnabled) {
+              <img
+                class="whatsapp-icon"
+                src="images/brand/whatsapp-green.svg"
+                width="20"
+                height="20"
+                alt=""
+                aria-hidden="true"
+              />
+            }
+            Scrivici su WhatsApp →</a
+          >
+        }
+      </div>
+    </div>
+    <div class="hours">
+      <div class="hours-heading">
+        <h3>Orari di apertura</h3>
+        <span aria-hidden="true">◷</span>
+      </div>
+      <dl>
+        @for (entry of hours; track entry.day) {
+          <div [class.closed]="entry.time === 'Chiuso'">
+            <dt>{{ entry.day }}</dt>
+            <dd>{{ entry.time }}</dd>
+          </div>
+        }
+      </dl>
+      <p>Per variazioni o aperture straordinarie, chiamaci prima della visita.</p>
+    </div>
+    <div class="map-panel">
+      @if (mapVisible()) {
+        <iframe
+          [src]="mapEmbedUrl"
+          title="Mappa: Pasticceria Siciliana, Condominio Il Delfino, Punta Ala"
+          loading="lazy"
+          referrerpolicy="no-referrer"
+          allowfullscreen
+        ></iframe>
+      } @else {
+        <div class="map-placeholder">
+          <span aria-hidden="true">⌖</span>
+          <div>
+            <h3>Ci trovi qui.</h3>
+            <p>Via Lattea · Condominio Il Delfino · Punta Ala</p>
+          </div>
+          <button class="button map-button" type="button" (click)="mapVisible.set(true)">
+            Mostra mappa ↗</button
+          ><small>La mappa viene caricata da Google Maps.</small>
+        </div>
+      }
+    </div>
+  </section>
+</main>
+<footer>
+  <a class="footer-brand" href="#">PASTICCERIA SICILIANA<small>DI FAMIGLIA · A PUNTA ALA</small></a>
+  <p>Via Lattea, Punta Ala · <a href="tel:+393291544558">329 154 4558</a></p>
+  <a href="#contenuto">Torna su ↑</a>
+</footer>
+<div class="mobile-contact">
+  <a [class.whatsapp-link]="content.whatsappEnabled" [href]="contactUrl">
+    @if (content.whatsappEnabled) {
+      <img
+        class="whatsapp-icon"
+        src="images/brand/whatsapp-white.svg"
+        width="20"
+        height="20"
+        alt=""
+        aria-hidden="true"
+      />
+    }
+    {{ content.whatsappEnabled ? 'Scrivici su WhatsApp ↗' : 'Chiama la pasticceria ↗' }}</a
+  ><a [href]="mapUrl" target="_blank" rel="noopener noreferrer">Indicazioni ↗</a>
+</div>

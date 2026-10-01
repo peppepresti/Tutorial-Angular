@@ -1,0 +1,845 @@
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+* {
+  box-sizing: border-box;
+}
+::selection {
+  background: #e4b9a3;
+  color: #303b30;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Ritaglio visivo della foto: mostra soltanto il cartello. */
+app-root figure.story-sign {
+  grid-column: 1/-1;
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1568/700;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  background: transparent;
+}
+app-root .story-sign img {
+  width: 102%;
+  margin-left: -1%;
+  height: auto;
+  max-height: none;
+  object-fit: initial;
+  transform: translateY(-16.667%);
+}
+app-root .plus-code {
+  font-size: 11px;
+  line-height: 1.7;
+  color: #687065;
+  margin: 12px 0 0;
+}
+app-root .availability a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+@media (prefers-reduced-motion: no-preference) {
+  app-root .reveal-target {
+    opacity: 0;
+    translate: 0 24px;
+    transition:
+      opacity 0.7s ease var(--reveal-delay, 0ms),
+      translate 0.7s cubic-bezier(0.2, 0.65, 0.3, 1) var(--reveal-delay, 0ms);
+  }
+  app-root .reveal-target.is-visible {
+    opacity: 1;
+    translate: 0 0;
+  }
+  app-root .hero-copy > * {
+    animation: pastry-enter 0.75s both cubic-bezier(0.2, 0.65, 0.3, 1);
+  }
+  app-root .hero-copy h1 {
+    animation-delay: 0.1s;
+  }
+  app-root .hero-copy .intro {
+    animation-delay: 0.2s;
+  }
+  app-root .hero-copy .actions {
+    animation-delay: 0.3s;
+  }
+  app-root .hero-copy .hero-note {
+    animation-delay: 0.4s;
+  }
+  app-root .hero-photo {
+    animation: pastry-enter 1s 0.15s both cubic-bezier(0.2, 0.65, 0.3, 1);
+  }
+  app-root .photo-stamp {
+    animation: pastry-float 5s ease-in-out infinite;
+  }
+  app-root .button,
+  app-root .card,
+  app-root .gallery-item {
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.25s ease,
+      background 0.25s ease;
+  }
+  app-root .mobile-contact {
+    animation: pastry-bar 0.6s 0.6s both ease-out;
+  }
+  app-root nav.open {
+    animation: pastry-enter 0.25s both ease-out;
+  }
+  @media (hover: hover) {
+    app-root .button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 18px #a8493220;
+    }
+    app-root .button:active {
+      transform: translateY(-1px);
+    }
+    app-root .card:hover {
+      transform: translateY(-5px);
+    }
+    app-root .gallery-item:hover {
+      box-shadow: 0 12px 24px #303b301f;
+    }
+    app-root .gallery-item:hover > img {
+      transform: scale(1.055);
+    }
+  }
+}
+app-root nav a:not(.nav-call) {
+  position: relative;
+}
+app-root nav a:not(.nav-call)::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 1px;
+  background: #a84932;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.2s ease;
+}
+app-root nav a:not(.nav-call):hover::after,
+app-root nav a:not(.nav-call):focus-visible::after {
+  transform: scaleX(1);
+}
+@keyframes pastry-enter {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes pastry-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-12deg);
+  }
+  50% {
+    transform: translateY(-7px) rotate(-9deg);
+  }
+}
+@keyframes pastry-bar {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  app-root .reveal-target {
+    opacity: 1;
+    translate: 0 0;
+  }
+  app-root nav a::after {
+    transition: none;
+  }
+}
+
+/* Foto del locale e insegna nella sezione Chi siamo. */
+app-root {
+  overflow-x: clip;
+}
+app-root .story-photos {
+  grid-column: 1/-1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 24px;
+  perspective: 1000px;
+}
+app-root .story-photos figure.story-sign {
+  grid-column: auto;
+  max-width: none;
+}
+app-root .story-interior img {
+  height: auto;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: 18px;
+}
+app-root .story-interior figcaption {
+  font:
+    italic 13px Georgia,
+    serif;
+  text-align: center;
+  margin-top: 12px;
+  color: #687065;
+}
+@media (max-width: 760px) {
+  app-root .story-photos {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+}
+/* Ingressi alternati; animazione una sola volta per elemento. */
+@media (prefers-reduced-motion: no-preference) {
+  app-root .reveal-target {
+    opacity: 0;
+    translate: 0 36px;
+    rotate: 0deg;
+    scale: 0.99;
+    transform-origin: center;
+    transition:
+      opacity 0.85s ease var(--reveal-delay, 0ms),
+      translate 0.95s cubic-bezier(0.2, 0.7, 0.25, 1) var(--reveal-delay, 0ms),
+      rotate 1s cubic-bezier(0.2, 0.7, 0.25, 1) var(--reveal-delay, 0ms),
+      scale 0.95s ease var(--reveal-delay, 0ms),
+      transform 0.25s ease,
+      box-shadow 0.25s ease;
+  }
+  app-root .reveal-target[data-reveal='left'] {
+    translate: -58px 12px;
+  }
+  app-root .reveal-target[data-reveal='right'] {
+    translate: 58px 12px;
+  }
+  app-root .reveal-target[data-reveal='turn'] {
+    translate: 0 30px;
+    rotate: -4deg;
+    scale: 0.95;
+  }
+  app-root .reveal-target.is-visible {
+    opacity: 1;
+    translate: 0 0;
+    rotate: 0deg;
+    scale: 1;
+  }
+  @media (max-width: 760px) {
+    app-root .reveal-target[data-reveal='left'] {
+      translate: -26px 8px;
+    }
+    app-root .reveal-target[data-reveal='right'] {
+      translate: 26px 8px;
+    }
+    app-root .reveal-target[data-reveal='turn'] {
+      rotate: -2deg;
+      scale: 0.98;
+    }
+    app-root .reveal-target.is-visible {
+      translate: 0 0;
+      rotate: 0deg;
+      scale: 1;
+    }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  app-root .reveal-target {
+    opacity: 1;
+    translate: 0 0;
+    rotate: 0deg;
+    scale: 1;
+    transition: none;
+  }
+}
+
+app-root .values-heading {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 36px;
+  align-items: center;
+  margin-bottom: 30px;
+}
+app-root .anniversary-copy {
+  max-width: 640px;
+  font-size: 15px;
+  line-height: 1.85;
+  color: #687065;
+  margin: 0;
+}
+app-root .anniversary-copy strong {
+  color: #303b30;
+  font-weight: 600;
+}
+app-root .anniversary-badge {
+  width: 230px;
+  height: 230px;
+  border: 1px solid #cdb581;
+  outline: 1px solid #cdb581;
+  outline-offset: -9px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #f3eddb;
+  color: #a84932;
+  text-align: center;
+}
+app-root .anniversary-badge > span {
+  font-size: 8px;
+  letter-spacing: 1.3px;
+  max-width: 160px;
+  line-height: 1.6;
+}
+app-root .anniversary-badge strong {
+  font:
+    86px/1.1 Georgia,
+    serif;
+  margin: 8px 0;
+}
+app-root .anniversary-badge sup {
+  font-size: 35px;
+  vertical-align: top;
+}
+app-root .anniversary-badge small {
+  font-size: 11px;
+  letter-spacing: 3px;
+  margin-top: 10px;
+}
+app-root .reviews {
+  background: #f1e5d5;
+}
+app-root .google-rating {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  flex-wrap: wrap;
+  max-width: 210px;
+}
+app-root .google-rating > strong {
+  font:
+    40px Georgia,
+    serif;
+  color: #303b30;
+}
+app-root .google-rating strong > span {
+  font:
+    13px Arial,
+    sans-serif;
+  color: #687065;
+  margin-left: 5px;
+}
+app-root .rating-stars,
+app-root .review-stars {
+  color: #98631e;
+  letter-spacing: 2px;
+  font-size: 16px;
+}
+app-root .google-rating > small {
+  width: 100%;
+  font-size: 11px;
+  line-height: 1.7;
+  border-bottom: 1px solid #bcaa8b;
+  padding-bottom: 5px;
+}
+app-root .reviews-grid > figure {
+  background: #fcf8ef;
+  display: flex;
+  flex-direction: column;
+  padding: 27px;
+  border: 1px solid #e1d8c6;
+}
+app-root .review-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+app-root .review-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #e9eddf;
+  color: #59694a;
+  font:
+    22px Georgia,
+    serif;
+  flex-shrink: 0;
+}
+app-root .review-meta strong {
+  font-size: 13px;
+  display: block;
+  margin-bottom: 5px;
+}
+app-root .review-meta small {
+  font-size: 10px;
+  color: #687065;
+}
+app-root .review-stars {
+  display: block;
+  margin-bottom: 18px;
+}
+app-root .reviews blockquote {
+  font:
+    25px/1.4 Georgia,
+    serif;
+  margin: 0 0 18px;
+}
+app-root .review-summary {
+  font-size: 12px;
+  line-height: 1.8;
+  color: #687065;
+  margin: 0 0 24px;
+}
+app-root .review-summary > span {
+  display: block;
+  font-size: 9px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #8a775a;
+  margin-bottom: 6px;
+}
+app-root .reviews figcaption {
+  margin-top: auto;
+  font-size: 10px;
+}
+app-root .reviews figcaption a {
+  border-bottom: 1px solid #bcaa8b;
+  padding-bottom: 5px;
+  display: inline-block;
+}
+@media (max-width: 760px) {
+  app-root .values-heading {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+  app-root .anniversary-badge {
+    width: 190px;
+    height: 190px;
+    justify-self: center;
+  }
+  app-root .anniversary-badge strong {
+    font-size: 70px;
+  }
+  app-root .google-rating {
+    margin-top: 22px;
+  }
+  app-root .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Navigazione sempre visibile; menu completo sugli schermi stretti. */
+app-root .header.header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  width: 100%;
+  max-width: none;
+  padding-top: 17px;
+  padding-bottom: 17px;
+  background: #fcf8eff2;
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid #e5dfd2;
+  box-shadow: 0 4px 20px #303b3009;
+}
+app-root .header.header nav {
+  gap: 20px;
+  font-size: 11px;
+}
+app-root .section.section,
+#contenuto {
+  scroll-margin-top: 108px;
+}
+app-root .button,
+app-root .menu-toggle {
+  border-radius: 12px;
+}
+app-root .card > img,
+app-root .orders > img {
+  border-radius: 20px;
+}
+app-root .gallery-item {
+  border-radius: 18px;
+}
+app-root .hours,
+.reviews-grid > figure {
+  border-radius: 22px;
+}
+app-root .map-panel,
+.map-placeholder {
+  border-radius: 20px;
+  overflow: hidden;
+}
+app-root figure.story-sign {
+  border-radius: 14px;
+}
+app-root .mobile-contact a {
+  border-radius: 12px;
+}
+app-root .reviews figcaption a {
+  border-radius: 0;
+}
+@media (max-width: 1100px) {
+  app-root .header.header {
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+  app-root .menu-toggle.menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 9px 14px;
+    border: 1px solid #c5c8b8;
+    background: transparent;
+    font-size: 12px;
+  }
+  app-root .header.header nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 31;
+    background: #fcf8ef;
+    padding: 20px 6%;
+    gap: 4px;
+    border-radius: 0 0 20px 20px;
+    border-bottom: 1px solid #e5dfd2;
+    box-shadow: 0 15px 24px #303b3014;
+    max-height: calc(100dvh - 95px);
+    overflow-y: auto;
+  }
+  app-root .header.header nav.open {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  app-root .header.header nav a {
+    padding: 12px 6px;
+    font-size: 13px;
+  }
+  app-root .header.header nav a:not(.nav-call)::after {
+    bottom: 6px;
+  }
+  app-root .section.section,
+  #contenuto {
+    scroll-margin-top: 95px;
+  }
+}
+/* Il fondo resta colorato anche oltre il contenuto e durante lo scroll. */
+html,
+body {
+  background-color: #eee8da;
+}
+/* Le sezioni colorate conservano la loro cornice anche negli stili globali. */
+app-root .reviews {
+  background: linear-gradient(120deg, #f5ebda, #efdfcc);
+}
+
+app-root {
+  /* Cornici e fondo ispirati ai colori dell'insegna. */
+  & {
+    background:
+      radial-gradient(ellipse at 0% 12%, #bac6a43b, transparent 38%),
+      radial-gradient(ellipse at 100% 55%, #c7935b26, transparent 42%),
+      radial-gradient(circle, #9b825721 0.8px, transparent 1px),
+      repeating-linear-gradient(45deg, transparent 0 78px, #ac956b08 79px 80px), #eee8da;
+    background-size:
+      auto,
+      auto,
+      22px 22px,
+      auto,
+      auto;
+  }
+  main {
+    padding: 28px 0 8px;
+  }
+  .hero.hero,
+  .section.section {
+    position: relative;
+    isolation: isolate;
+    width: calc(100% - 64px);
+    max-width: 1320px;
+    margin: 0 auto 26px;
+    padding: clamp(32px, 4.5vw, 64px);
+    border: 1px solid #c8b58c80;
+    border-radius: 32px 68px 32px 68px;
+    background: #fcf8eff2;
+    box-shadow:
+      inset 0 0 0 7px #fffaf04d,
+      inset 0 0 0 8px #c8b58c40,
+      0 12px 34px #4e493a08;
+  }
+  .section.section:nth-of-type(even) {
+    border-radius: 68px 32px 68px 32px;
+  }
+  .section.section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 20%;
+    right: 20%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #b49257, transparent);
+    pointer-events: none;
+  }
+  .section.section::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: calc(50% - 4px);
+    width: 8px;
+    height: 8px;
+    rotate: 45deg;
+    border: 1px solid #b49257;
+    background: #eee8da;
+    pointer-events: none;
+  }
+  .hero.hero {
+    background: radial-gradient(ellipse at 0 0, #ead5ae38, transparent 60%), #fcf8eff2;
+  }
+  .hero-photo.hero-photo > img {
+    border-radius: 44% 44% 22px 22px;
+    border: 1px solid #b69a674d;
+    box-shadow: 0 12px 28px #303b3014;
+  }
+  .story.story,
+  .contact.contact {
+    background: linear-gradient(120deg, #f0efdf, #e7eadb);
+    border-color: #a5b18a8c;
+  }
+  .orders.orders,
+  .reviews.reviews {
+    background: linear-gradient(120deg, #f5ebda, #efdfcc);
+  }
+  .hours.hours,
+  .reviews-grid.reviews-grid > figure {
+    border: 1px solid #bdac8559;
+    box-shadow: 0 7px 20px #54462d08;
+  }
+  footer {
+    max-width: 1320px;
+    margin: auto;
+    background: transparent;
+  }
+  @media (max-width: 760px) {
+    main {
+      padding-top: 16px;
+    }
+    .hero.hero,
+    .section.section {
+      width: calc(100% - 28px);
+      margin-bottom: 18px;
+      padding: 32px 22px;
+      border-radius: 24px 40px 24px 40px;
+      box-shadow:
+        inset 0 0 0 4px #fffaf04d,
+        inset 0 0 0 5px #c8b58c40,
+        0 8px 24px #4e493a08;
+    }
+    .section.section:nth-of-type(even) {
+      border-radius: 40px 24px 40px 24px;
+    }
+    .hero-photo.hero-photo > img {
+      border-radius: 30% 30% 18px 18px;
+    }
+    .hero-photo.hero-photo {
+      margin-left: 8px;
+    }
+    .section-heading {
+      overflow-wrap: anywhere;
+    }
+  }
+}
+/* Nastri da confezione e navbar coordinata alle cornici. */
+body {
+  background: #eee8da url('/images/decor/pastry-ribbons.png') center top / cover no-repeat fixed;
+}
+app-root {
+  background: transparent;
+}
+app-root .header.header {
+  top: 14px;
+  width: calc(100% - 64px);
+  max-width: 1320px;
+  margin: 14px auto 0;
+  padding: 15px 30px;
+  border: 1px solid #c4ac7b99;
+  border-radius: 24px 40px 24px 40px;
+  background: linear-gradient(120deg, #fffaf3f5, #f3eddff5);
+  box-shadow:
+    inset 0 0 0 5px #fffaf059,
+    inset 0 0 0 6px #c8b58c40,
+    0 10px 28px #4e493a12;
+  backdrop-filter: blur(16px);
+}
+app-root .header.header nav {
+  gap: 18px;
+}
+app-root .header.header .brand-mark {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border: 1px solid #bdac8559;
+  border-radius: 50%;
+  background: #efe6d44d;
+  font-size: 35px;
+}
+app-root .header.header nav .nav-call {
+  padding: 12px 16px;
+  border: 1px solid #536348;
+  border-radius: 12px 20px 12px 20px;
+  background: #536348;
+  color: #fffaf0;
+  box-shadow: inset 0 0 0 3px #fffaf012;
+}
+app-root .header.header nav .nav-call:hover {
+  background: #3e5138;
+}
+app-root main {
+  padding-top: 52px;
+}
+app-root .hero.hero,
+app-root .section.section {
+  width: calc(100% - 144px);
+  max-width: 1240px;
+}
+app-root .section.section,
+#contenuto {
+  scroll-margin-top: 130px;
+}
+@media (max-width: 1100px) {
+  app-root .header.header {
+    padding: 14px 24px;
+  }
+  app-root .header.header nav {
+    top: calc(100% + 10px);
+    padding: 18px 24px;
+    border: 1px solid #c4ac7b99;
+    border-radius: 24px;
+    background: #fcf8effa;
+    backdrop-filter: blur(16px);
+    box-shadow:
+      inset 0 0 0 5px #c8b58c12,
+      0 12px 28px #4e493a12;
+    max-height: calc(100dvh - 130px);
+  }
+  app-root .header.header nav .nav-call {
+    text-align: center;
+    margin-top: 8px;
+  }
+  app-root .hero.hero,
+  app-root .section.section {
+    width: calc(100% - 64px);
+  }
+}
+@media (max-width: 760px) {
+  body {
+    background-size: auto 100dvh;
+  }
+  app-root .header.header {
+    top: 8px;
+    margin-top: 8px;
+    width: calc(100% - 28px);
+    padding: 12px 16px;
+    gap: 10px;
+    border-radius: 20px 30px 20px 30px;
+  }
+  app-root .header.header .brand {
+    gap: 8px;
+  }
+  app-root .header.header .brand-mark {
+    width: 36px;
+    height: 36px;
+    font-size: 28px;
+  }
+  app-root .header.header .menu-toggle.menu-toggle {
+    border-color: #bdac85;
+    background: #f3eddf;
+    min-width: 58px;
+    padding: 9px 10px;
+  }
+  app-root main {
+    padding-top: 28px;
+  }
+  app-root .hero.hero,
+  app-root .section.section {
+    width: calc(100% - 28px);
+  }
+  app-root .section.section,
+  #contenuto {
+    scroll-margin-top: 112px;
+  }
+}
+/* Glyph originali WhatsApp: verde sui fondi chiari, bianco sui pulsanti. */
+app-root a.whatsapp-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+app-root img.whatsapp-icon {
+  display: block;
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  flex: 0 0 20px;
+}
+app-root .mobile-contact.mobile-contact a.whatsapp-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+@media (max-width: 1100px) {
+  app-root .header.header nav .nav-call.whatsapp-link {
+    justify-content: center;
+  }
+}
+/* Allineamento uniforme delle icone anche nei collegamenti sottolineati. */
+app-root a.whatsapp-link.whatsapp-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  vertical-align: middle;
+}
+/* Il ritaglio resta sulla foto: la didascalia può stare sotto l'insegna. */
+app-root .story-photos figure.story-sign {
+  aspect-ratio: auto;
+  overflow: visible;
+  border-radius: 0;
+}
+app-root .story-sign-crop {
+  position: relative;
+  aspect-ratio: 1568 / 700;
+  overflow: hidden;
+  border-radius: 14px;
+}
+app-root .story-sign figcaption {
+  font:
+    italic 13px Georgia,
+    serif;
+  text-align: center;
+  margin-top: 12px;
+  color: #687065;
+}
