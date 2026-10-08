@@ -1,4 +1,4 @@
-name: Pubblica la pasticceria su GitHub Pages
+name: Pubblica pasticceria e Highlander Pub su GitHub Pages
 
 on:
   push:
@@ -15,28 +15,41 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: pasticceria-punta-ala
     steps:
-      - name: Scarica il progetto
+      - name: Scarica i progetti
         uses: actions/checkout@v6
       - name: Configura Node
         uses: actions/setup-node@v6
         with:
           node-version: "26"
           cache: npm
-          cache-dependency-path: pasticceria-punta-ala/package-lock.json
+          cache-dependency-path: |
+            pasticceria-punta-ala/package-lock.json
+            highlander-pub/package-lock.json
       - name: Configura GitHub Pages
         uses: actions/configure-pages@v5
-      - name: Installa le dipendenze
+      - name: Installa le dipendenze della pasticceria
+        working-directory: pasticceria-punta-ala
         run: npm ci
-      - name: Compila il sito
+      - name: Installa le dipendenze del pub
+        working-directory: highlander-pub
+        run: npm ci
+      - name: Compila la pasticceria
+        working-directory: pasticceria-punta-ala
         run: npm run build -- --base-href /Tutorial-Angular/
-      - name: Carica il sito
+      - name: Compila Highlander Pub
+        working-directory: highlander-pub
+        run: npm run build -- --base-href /Tutorial-Angular/highlander-pub/
+      - name: Prepara entrambe le pagine
+        run: |
+          mkdir -p _site/highlander-pub
+          cp -a pasticceria-punta-ala/dist/pasticceria-punta-ala/browser/. _site/
+          cp -a highlander-pub/dist/. _site/highlander-pub/
+          touch _site/.nojekyll
+      - name: Carica i siti
         uses: actions/upload-pages-artifact@v4
         with:
-          path: pasticceria-punta-ala/dist/pasticceria-punta-ala/browser
+          path: _site
 
   deploy:
     needs: build
@@ -48,6 +61,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Pubblica il sito
+      - name: Pubblica i siti
         id: deployment
         uses: actions/deploy-pages@v4

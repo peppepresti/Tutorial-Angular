@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.angular/
+out-tsc/
+.sites-runtime/
+*.tar.gz
+.openai/
+public/assets/*-original.jpeg
+public/assets/menu-oktoberfest.jpg
+public/assets/oktoberfest.jpg
+public/assets/logo-original.jpg

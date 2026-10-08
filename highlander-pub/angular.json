@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "cli": {
+    "analytics": false
+  },
+  "projects": {
+    "highlander-pub": {
+      "projectType": "application",
+      "root": "",
+      "sourceRoot": "src",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:application",
+          "options": {
+            "browser": "src/main.ts",
+            "index": "src/index.html",
+            "tsConfig": "tsconfig.app.json",
+            "outputPath": {
+              "base": "dist",
+              "browser": ""
+            },
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "public",
+                "ignore": [
+                  "**/*-original.jpeg",
+                  "menu-oktoberfest.jpg",
+                  "oktoberfest.jpg",
+                  "logo-original.jpg"
+                ]
+              }
+            ],
+            "styles": [
+              "src/styles.css"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "all",
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                }
+              ]
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular/build:dev-server",
+          "configurations": {
+            "development": {
+              "buildTarget": "highlander-pub:build"
+            }
+          },
+          "defaultConfiguration": "development"
+        }
+      }
+    }
+  }
+}
