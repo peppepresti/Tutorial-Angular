@@ -78,7 +78,7 @@ export class App {
   const section = document.getElementById(id);
   if (!section) return;
   event.preventDefault();
-  this.navOpen = false;
+  this.closeNavigation();
   requestAnimationFrame(() => {
    section.querySelectorAll('.reveal-target').forEach(element => element.classList.add('is-visible'));
    const headerHeight = document.querySelector('.header')?.getBoundingClientRect().height ?? 0;
@@ -91,7 +91,7 @@ export class App {
   });
  }
 
- photoUrl(image: string) { return 'assets/' + image + (['oktoberfest', 'mojo', 'tribeauty', 'smartcity'].includes(image) ? '-clean.png' : '.jpg'); }
+ photoUrl(image: string, original = false) { const poster = ['oktoberfest', 'mojo', 'tribeauty', 'smartcity'].includes(image); return 'assets/' + image + (poster ? '-clean' : '') + (original ? (poster ? '.png' : '.jpg') : '.webp'); }
 
  @ViewChild('photoDialog') photoDialog?: ElementRef<HTMLDialogElement>;
  @ViewChild('menuDialog') menuDialog?: ElementRef<HTMLDialogElement>;
@@ -130,11 +130,27 @@ export class App {
   { image: 'smartcity', caption: 'Highlander e Piazza Smart City', alt: 'Annuncio adesione ufficiale Highlander Pub a Piazza Smart City' }
  ];
  get filteredDrinks() { return this.drinks.filter(d => this.drinkFilter === 'Tutti' || d.type === this.drinkFilter); }
- openPhoto(index: number) { this.selectedPhoto = index; this.photoDialog?.nativeElement.showModal(); }
+ toggleNavigation() { this.navOpen = !this.navOpen; document.body.classList.toggle('menu-open', this.navOpen); }
+ closeNavigation() { this.navOpen = false; document.body.classList.remove('menu-open'); }
+ openDialog(dialog: HTMLDialogElement) { dialog.showModal(); document.body.classList.add('dialog-open'); }
+ onDialogClose() { document.body.classList.remove('dialog-open'); }
+ openPhoto(index: number) { this.selectedPhoto = index; if (this.photoDialog) this.openDialog(this.photoDialog.nativeElement); }
+ private touchStart: { x: number; y: number } | null = null;
+ startSwipe(event: TouchEvent) { this.touchStart = event.touches.length === 1 ? { x: event.touches[0].clientX, y: event.touches[0].clientY } : null; }
+ endSwipe(event: TouchEvent) {
+  const start = this.touchStart; this.touchStart = null;
+  if (!start || event.changedTouches.length !== 1) return;
+  const dx = event.changedTouches[0].clientX - start.x;
+  const dy = event.changedTouches[0].clientY - start.y;
+  if (Math.abs(dx) > 48 && Math.abs(dx) > Math.abs(dy) * 1.5) this.movePhoto(dx < 0 ? 1 : -1);
+ }
+ @HostListener('window:resize')
+ resizeNavigation() { if (window.innerWidth > 1024) this.closeNavigation(); }
  movePhoto(direction: number) { this.selectedPhoto = (this.selectedPhoto + direction + this.gallery.length) % this.gallery.length; }
  closeBackdrop(event: MouseEvent, dialog: HTMLDialogElement) { if (event.target === dialog) dialog.close(); }
  @HostListener('document:keydown', ['$event'])
  keydown(event: KeyboardEvent) {
+  if (event.key === 'Escape' && this.navOpen) { this.closeNavigation(); document.querySelector<HTMLButtonElement>('.mobile-toggle')?.focus(); }
   if (!this.photoDialog?.nativeElement.open) return;
   if (event.key === 'ArrowRight') this.movePhoto(1);
   if (event.key === 'ArrowLeft') this.movePhoto(-1);
